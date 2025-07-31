@@ -4,7 +4,7 @@
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "northwind-full-stack",
+  "name": "mintcar",
   "compatibility_date": "2025-04-04",
   "main": "./workers/app.ts",
   "observability": {
@@ -18,8 +18,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "northwind",
-      "database_id": "d5b1d127-1d3f-467e-953b-cbc69f0a9e06"
+      "database_name": "mint-db",
+      "database_id": "ded37072-a68e-4ec5-a7ff-d391f2fc6e00"
     }
   ]
   /**

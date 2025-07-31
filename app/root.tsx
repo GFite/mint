@@ -72,7 +72,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           property="og:description"
           content="This is a demo of the Northwind dataset, running on Cloudflare Workers, and D1 - Cloudflare's newest SQL database, running on SQLite."
         />
-        <meta property="og:url" content="https://northwind.d1sql.com/" />
+        <meta property="og:url" content="https://mint-db.d1sql.com/" />
         <meta
           property="og:image"
           content="https://imagedelivery.net/4wj01aQOZZ0hemsvbxWAvA/763bcbcd-da6d-46ec-f5e1-70c1c1a33d00/public"
@@ -94,7 +94,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           name="twitter:description"
           content="This is a demo of the Northwind dataset, running on Cloudflare Workers, and D1 - Cloudflare's newest SQL database, running on SQLite."
         />
-        <meta name="twitter:url" content="https://northwind.d1sql.com" />
+        <meta name="twitter:url" content="https://mintcar.d1sql.com" />
         <meta
           name="twitter:image"
           content="https://imagedelivery.net/4wj01aQOZZ0hemsvbxWAvA/763bcbcd-da6d-46ec-f5e1-70c1c1a33d00/public"
