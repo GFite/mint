@@ -12,10 +12,17 @@ import {
   StatsDispatchContext,
   initialStats,
 } from "~/components/StatsContext";
+import { rootAuthLoader } from '@clerk/react-router/ssr.server'
+
+import { ClerkProvider, SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/react-router'
 
 import type { Route } from "./+types/root";
 import "./app.css";
 import { Aside, Nav } from "~/components";
+
+export async function loader(args: Route.LoaderArgs) {
+  return rootAuthLoader(args)
+}
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -62,15 +69,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <title>Northwind Traders D1 Demo</title>
+        <title>MintCar</title>
         <meta name="robots" content="noindex, nofollow" />
         <meta
           property="og:title"
-          content="Northind Traders, running on Cloudflare's D1"
+          content="MintCar.io - collector vehicle marketplace"
         />
         <meta
           property="og:description"
-          content="This is a demo of the Northwind dataset, running on Cloudflare Workers, and D1 - Cloudflare's newest SQL database, running on SQLite."
+          content="This is the MintCar.io site."
         />
         <meta property="og:url" content="https://mint-db.d1sql.com/" />
         <meta
@@ -88,11 +95,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Northind Traders, running on Cloudflare's D1"
+          content="MintCar.io"
         />
         <meta
           name="twitter:description"
-          content="This is a demo of the Northwind dataset, running on Cloudflare Workers, and D1 - Cloudflare's newest SQL database, running on SQLite."
+          content="This is the MintCar.io site."
         />
         <meta name="twitter:url" content="https://mintcar.d1sql.com" />
         <meta
@@ -121,8 +128,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
-  return <Outlet />;
+export default function App({ loaderData }: Route.ComponentProps) {
+  return (
+      <ClerkProvider loaderData={loaderData}>
+        <header className="flex items-center justify-center py-8 px-4">
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </header>
+        <main>
+          <Outlet />
+        </main>
+      </ClerkProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

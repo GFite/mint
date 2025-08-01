@@ -1,10 +1,12 @@
 // React Router generated types for route:
 // root.tsx
 
+// @ts-ignore
 import type * as T from "react-router/route-module"
 
 
 
+// @ts-ignore
 type Module = typeof import("../root.js")
 
 export type Info = {

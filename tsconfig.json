@@ -7,6 +7,8 @@
   "compilerOptions": {
     "checkJs": true,
     "verbatimModuleSyntax": true,
+    "module": "NodeNext",
+    "moduleResolution": "Node",
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
